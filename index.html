@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMedic UI - AI Code Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+
+<div class="app-container">
+    <header class="header">
+        <div class="logo">
+            <i class="fa-solid fa-stethoscope"></i> CodeMedic UI
+        </div>
+        <div class="header-actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Editor Section -->
+        <section class="editor-section panel">
+            <div class="panel-header">
+                <h2><i class="fa-solid fa-code"></i> Code Editor</h2>
+                <div class="controls">
+                    <select id="languageSelect" class="dropdown">
+                        <option value="javascript">JavaScript</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                    </select>
+                    <button id="loadSampleBtn" class="btn btn-secondary"><i class="fa-solid fa-flask"></i> Load Sample</button>
+                    <button id="copyBtn" class="btn btn-secondary"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button id="clearBtn" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Clear</button>
+                </div>
+            </div>
+            <div class="editor-container">
+                <div class="line-numbers" id="lineNumbers">1</div>
+                <textarea id="codeEditor" spellcheck="false" placeholder="Paste or type your code here..."></textarea>
+            </div>
+            <div class="panel-footer">
+                <button id="analyzeBtn" class="btn btn-primary primary-action"><i class="fa-solid fa-magnifying-glass-chart"></i> Analyze Code</button>
+            </div>
+        </section>
+
+        <!-- Output Section -->
+        <section class="output-section panel">
+            <div class="panel-header">
+                <h2><i class="fa-solid fa-clipboard-check"></i> Analysis Output</h2>
+                <div class="controls">
+                    <button id="previewToggle" class="btn btn-secondary" style="display: none;"><i class="fa-solid fa-eye"></i> Live Preview Mode</button>
+                </div>
+            </div>
+            <div class="output-container" id="outputContainer">
+                <div class="empty-state">
+                    <i class="fa-solid fa-laptop-code empty-icon"></i>
+                    <p>Enter your code and click "Analyze Code" to see results.</p>
+                </div>
+            </div>
+            <div class="preview-container" id="previewContainer" style="display: none;">
+                <iframe id="livePreview" sandbox="allow-scripts"></iframe>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
